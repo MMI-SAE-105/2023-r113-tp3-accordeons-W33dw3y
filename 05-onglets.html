@@ -18,9 +18,8 @@
       }
       #panneaux div.actif {
         opacity: 1;
-
       }
-
+      
       #onglets ul{
         margin: 0px;
         padding: 0px;
@@ -34,8 +33,11 @@
         margin: 2px;
       }
       #onglets ul li:hover{
-        background-color: rgb(84, 213, 213);
+        background-color: rgb(223, 199, 103);
         transition: 0.5s;
+      }
+      #onglets ul li.actif{
+        background-color: rgb(223, 199, 103);
       }
     </style>
   </head>
@@ -43,9 +45,9 @@
     <h1>Onglets</h1>
     <div id="onglets" >
      <ul role="tablist">
-      <li role="tab" @click="isOpen = 1">Onglet 1</li>
-      <li role="tab" @click="isOpen = 2">Onglet 2</li>
-      <li role="tab" @click="isOpen = 3">Onglet 3</li>
+      <li role="tab" @click="isOpen = 1" :class="{actif:isOpen === 1,}">Onglet 1</li>
+      <li role="tab" @click="isOpen = 2" :class="{actif:isOpen === 2,}">Onglet 2</li>
+      <li role="tab" @click="isOpen = 3" :class="{actif:isOpen === 3,}">Onglet 3</li>
      </ul>
     </div>
     <div id="panneaux">
