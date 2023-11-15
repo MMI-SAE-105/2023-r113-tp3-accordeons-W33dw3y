@@ -7,6 +7,26 @@
     <title>Accordéon avec x-collapse</title>
     <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <style>
+      .accordeon section button {
+        background-color: rgb(109, 109, 201);
+        border-radius: 2px;
+        border: 0px;
+        width: 150px;
+        height: 25px;
+        text-align: left;
+        color: white;
+        font-weight: bold;
+        margin: 2px;
+      }
+      .accordeon section button:hover {
+        background-color: rgb(128, 128, 130);
+        transition: 0.5s;
+      }
+      .accordeon section .ouvert {
+        background-color: rgb(128, 128, 130);
+      }
+    </style>
   </head>
   <body>
     <h1>Accordéon avec <code>x-collapse</code></h1>
@@ -19,6 +39,7 @@
         <p 
         x-show="isOpen === 1"
         x-collapse.duration.500ms
+        
         >Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa itaque harum porro nobis, consequuntur vel molestias! Ratione aliquam dolore minus quae vitae voluptatibus voluptates libero. Earum rem veniam quos autem.</p>
       </section>
       <section>
@@ -42,11 +63,7 @@
         >Doloribus possimus, minima, ad quo architecto nobis voluptas velit, ducimus non ea inventore fugiat earum quos debitis. Nesciunt praesentium et nam reiciendis quos at sint? Sunt quod doloremque ipsa eligendi.</p>
       </section>
 
-      <style>
-        .ouvert {
-          background-color: skyblue;
-        }
-      </style>
+      
     </div>
   </body>
 </html>
