@@ -17,7 +17,7 @@
         text-align: left;
         color: white;
         font-weight: bold;
-        margin: 2px;
+        margin-bottom: 2px;
       }
       .accordeon section button:hover {
         background-color: rgb(128, 128, 130);
@@ -25,13 +25,22 @@
       }
       .accordeon section .ouvert {
         background-color: rgb(128, 128, 130);
+        border-radius: 0px 0px 2px 0px;
+      }
+
+      .accordeon section.open {
+        background-color: rgb(204, 204, 204);
+        border-radius: 2px;
+      }
+      .accordeon section p {
+        margin-left: 5px;
       }
     </style>
   </head>
   <body>
     <h1>Accordéon avec <code>x-collapse</code></h1>
     <div class="accordeon" x-data="{isOpen: 0}">
-      <section>
+      <section :class="{open:isOpen === 1}">
         <button 
         @click="isOpen = (isOpen === 1)?0:1"
         :class="{ouvert:isOpen === 1}"
@@ -39,10 +48,9 @@
         <p 
         x-show="isOpen === 1"
         x-collapse.duration.500ms
-        
         >Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa itaque harum porro nobis, consequuntur vel molestias! Ratione aliquam dolore minus quae vitae voluptatibus voluptates libero. Earum rem veniam quos autem.</p>
       </section>
-      <section>
+      <section :class="{open:isOpen === 2}">
         <button 
         @click="isOpen = (isOpen === 2)?0:2"
         :class="{ouvert:isOpen === 2}"
@@ -52,7 +60,7 @@
         x-collapse.duration.500ms
         >Optio, ex voluptatum! Doloribus quasi explicabo voluptate ipsa architecto consequatur magni, corporis animi ut voluptas deleniti ullam, fugiat accusantium. Architecto enim rem corporis asperiores rerum quod doloribus quis quae vitae.</p>
       </section>
-      <section>
+      <section :class="{open:isOpen === 3}">
         <button 
         @click="isOpen = (isOpen === 3)?0:3"
         :class="{ouvert:isOpen === 3}"
