@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr" x-data="{isOpen: 1}">
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -12,11 +12,12 @@
         width: 300px;
         height: 150px;
       }
-      #panneaux > * {
+      #panneaux > div {
         position: absolute;
         opacity: 0;
+        transition: 1s;
       }
-      #panneaux div.actif {
+      #panneaux > div.actif {
         opacity: 1;
       }
       
@@ -41,7 +42,7 @@
       }
     </style>
   </head>
-  <body>
+  <body x-data="{isOpen: 1}">
     <h1>Onglets</h1>
     <div id="onglets" >
      <ul role="tablist">
@@ -51,15 +52,15 @@
      </ul>
     </div>
     <section id="panneaux">
-      <div role="tabpanel" x-show="isOpen === 1" :class="{actif:isOpen === 1,}">
+      <div role="tabpanel"  :class="{actif:isOpen === 1,}"> <!-- x-show="isOpen === 1" -->
         <h1>Panneau 1</h1>
         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pariatur magnam, id nulla et sapiente dignissimos deserunt consequuntur quisquam excepturi sit velit consequatur nemo minima, rerum esse eligendi quae libero ex.</p>
       </div>
-      <div role="tabpanel" x-show="isOpen === 2" :class="{actif:isOpen === 2,}">
+      <div role="tabpanel"  :class="{actif:isOpen === 2,}">
         <h1>Panneau 2</h1>
         <p>Commodi, natus. Qui recusandae illum et, eaque eius reiciendis. Autem dolorem ut, dignissimos eos maxime totam quae nulla, velit possimus laudantium odit commodi magni ratione? Distinctio error unde voluptatum aperiam.</p>
       </div>
-      <div role="tabpanel" x-show="isOpen === 3" :class="{actif:isOpen === 3,}" >
+      <div role="tabpanel"  :class="{actif:isOpen === 3,}" >
         <h1>Panneau 3</h1>
         <p>Assumenda fuga ab voluptatibus tempora dicta beatae natus fugiat, culpa iure! Exercitationem, eaque saepe odio consectetur enim, sint minima quibusdam ab omnis quae repellendus a cumque amet. Omnis, placeat et.</p>
       </div>
