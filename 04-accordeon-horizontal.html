@@ -13,35 +13,43 @@
         margin: 0px;
         padding: 0px;
       }
-      #accordeon li.actif {
+      #accordeon li {
         width: 100px;
         overflow: hidden;
+        transition: width 1.5s;
         background-color: #eee;
         list-style-type: none;
         margin: 3px;
         padding: 5px;
-        border-radius: 5px;
-        transition: width 1.5s;
+        border-radius: 5px;  
+      }
+      #accordeon li.actif {
+        width: 317px;
       }
       #accordeon li figure {
         margin: 0px;
         display: flex;
         width: 317px;
       }
-      #accordeon li figure figcaption > * {
-        margin: 0px;
+      #accordeon li figure figcaption {
+        width: 200px;
         padding: 10px;
       }
-      #accordeon li:hover {
-        width: 300px;
+      #accordeon li figure figcaption > * {
+        margin: 0px;
+        padding: 0px;
       }
+
     </style>
   </head>
   <body>
     <h1>Accordéon horizontal</h1>
-    <ul id="accordeon">
-      <li class="actif">
-        <figure>
+    <ul id="accordeon" x-data="{isOpen:0}">
+      <li :class="{actif:isOpen === 1}">
+        <figure 
+        @mouseover="isOpen = 1"
+        @mouseout="isOpen = 0"
+        >
           <img src="https://picsum.photos/100?random=1" alt="" width="102">
           <figcaption>
             <h3>Lorem, ipsum dolor.</h3>
@@ -49,8 +57,11 @@
           </figcaption>
         </figure>
       </li>
-      <li class="actif">
-        <figure>
+      <li :class="{actif:isOpen === 2}">
+        <figure 
+        @mouseover="isOpen = 2"
+        @mouseout="isOpen = 0"
+        >
           <img src="https://picsum.photos/100?random=2" alt="" width="102">
           <figcaption>
             <h3>Ipsa, labore quo!</h3>
@@ -58,8 +69,11 @@
           </figcaption>
         </figure>
       </li>
-      <li class="actif"">
-        <figure>
+      <li :class="{actif:isOpen === 3}">
+        <figure 
+        @mouseover="isOpen = 3"
+        @mouseout="isOpen=  0"
+        >
           <img src="https://picsum.photos/100?random=3" alt="" width="102">
           <figcaption>
             <h3>Veniam, consequatur magnam!</h3>
